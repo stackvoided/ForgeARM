@@ -13,7 +13,8 @@
 [Architecture](#-architecture) •
 [Building](#-building) •
 [Usage](#-usage) •
-[Technical Highlights](#-technical-highlights)
+[Technical Highlights](#-technical-highlights) •
+[Disclaimer](#-disclaimer)
 
 </div>
 
@@ -31,7 +32,7 @@ The project performs low-level ELF format parsing, instruction stream decoding, 
 
 - 🛠 **Custom ELF32/ELF64 Engine**: Parses, reconstructs, and writes valid ELF structures (`Shdr`, `Ehdr`, `.text`, `.plt`) across 32-bit and 64-bit binaries.
 - 🔄 **Bidirectional Translation**: Supports both `AArch64 -> ARMv7` downscaling and `ARMv7 -> AArch64` upscaling.
-- 🗃 **Register Mapping & Allocation Logic**: Emulates AArch64's 31 64-bit register file ($X0\text{--}X30$) over ARMv7's 16 32-bit registers ($R0\text{--}R15$).
+- 🗃 **Register Mapping & Allocation Logic**: Emulates AArch64's 31 64-bit register file (X0-X30) over ARMv7's 16 32-bit registers (R0-R15).
 - 🚀 **High Performance & Zero Dependencies**: Built strictly using modern C++17 standard libraries for maximum compilation speed and portability.
 - 📦 **Clean Modular Design**: Single-responsibility architectural design with separated parsing, assembly, translation, and mapping modules.
 
@@ -39,16 +40,31 @@ The project performs low-level ELF format parsing, instruction stream decoding, 
 
 ## 🏗 Architecture & Project Structure
 
-```text
 arm-binary-translator/
-├── 📄 elf_header.h          # Low-level C-struct definitions for ELF32/ELF64 headers
-├── 📄 elf_parser.h          # Interface for ELF binary parsing & re-writing
-├── 📄 elf_parser.cpp        # Custom ELF file parser implementation
-├── 📄 register_mapper.h    # Register mapping interface (AArch64 <-> ARM32)
-├── 📄 register_mapper.cpp  # State management and spill-offset calculations
-├── 📄 assembler.h          # Low-level A32 and A64 instruction encoder
-├── 📄 assembler.cpp        # Byte-buffer code emitter and opcode construction
-├── 📄 translator.h         # Core ISA translation context and interface
-├── 📄 translator.cpp       # Pattern-matching translation loops
-├── 📄 main.cpp             # CLI Entry point & pipeline controller
-└── 🛠 Makefile             # Optimized build configuration script
+├── elf_header.h          # Low-level C-struct definitions for ELF32/ELF64 headers
+├── elf_parser.h          # Interface for ELF binary parsing & re-writing
+├── elf_parser.cpp        # Custom ELF file parser implementation
+├── register_mapper.h    # Register mapping interface (AArch64 <-> ARM32)
+├── register_mapper.cpp  # State management and spill-offset calculations
+├── assembler.h          # Low-level A32 and A64 instruction encoder
+├── assembler.cpp        # Byte-buffer code emitter and opcode construction
+├── translator.h         # Core ISA translation context and interface
+├── translator.cpp       # Pattern-matching translation loops
+├── main.cpp             # CLI Entry point & pipeline controller
+└── Makefile             # Optimized build configuration script
+
+---
+
+## ⚙️ Building
+
+### Prerequisites
+
+- A C++17 compatible compiler (`g++` >= 8.0 or `clang++` >= 6.0)
+- `make` build utility
+
+### Compilation
+
+Build the release binary using the included `Makefile`:
+
+```bash
+make
