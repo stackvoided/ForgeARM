@@ -8,13 +8,6 @@
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Android-green.svg?style=for-the-badge&logo=linux)](https://www.android.com/)
 [![License](https://img.shields.io/badge/License-MIT-orange.svg?style=for-the-badge)](LICENSE)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg?style=for-the-badge)](Makefile)
-
-[Key Features](#-key-features) •
-[Architecture](#-architecture) •
-[Building](#-building) •
-[Usage](#-usage) •
-[Technical Highlights](#-technical-highlights)
-
 </div>
 
 ---
