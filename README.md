@@ -52,3 +52,35 @@ arm-compiler/
 ├── 📄 translator.cpp       # Pattern-matching translation loops
 ├── 📄 main.cpp             # CLI Entry point & pipeline controller
 └── 🛠 Makefile             # Optimized build configuration script
+
+# ⚙️ ARM Converter (AArch64 → ARMv7)
+
+<div align="center">
+
+![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg?style=flat-square)
+![Architecture](https://img.shields.io/badge/Architecture-AArch64%20%E2%86%92%20ARMv7-orange.svg?style=flat-square)
+![Platform](https://img.shields.io/badge/Platform-Linux%20%2F%20Android-green.svg?style=flat-square)
+
+*An architectural Proof-of-Concept for binary decoding, dynamic register reallocation, and target ELF rewriting.*
+
+</div>
+
+---
+
+## 📋 Prerequisites
+
+Before building the project, ensure you have the following installed:
+
+* **C++17-compatible compiler**:
+  * `g++` (>= 8.0)
+  * `clang++` (>= 6.0)
+* **GNU Make**
+
+---
+
+## 🔨 Compilation
+
+Build the release binary using the included `Makefile`:
+
+```bash
+make
