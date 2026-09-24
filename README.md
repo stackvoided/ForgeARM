@@ -37,22 +37,6 @@ The project performs low-level ELF format parsing, instruction stream decoding, 
 
 ---
 
-## 🏗 Architecture & Project Structure
-
-```text
-arm-compiler/
-├── 📄 elf_header.h          # Low-level C-struct definitions for ELF32/ELF64 headers
-├── 📄 elf_parser.h          # Interface for ELF binary parsing & re-writing
-├── 📄 elf_parser.cpp        # Custom ELF file parser implementation
-├── 📄 register_mapper.h    # Register mapping interface (AArch64 <-> ARM32)
-├── 📄 register_mapper.cpp  # State management and spill-offset calculations
-├── 📄 assembler.h          # Low-level A32 and A64 instruction encoder
-├── 📄 assembler.cpp        # Byte-buffer code emitter and opcode construction
-├── 📄 translator.h         # Core ISA translation context and interface
-├── 📄 translator.cpp       # Pattern-matching translation loops
-├── 📄 main.cpp             # CLI Entry point & pipeline controller
-└── 🛠 Makefile             # Optimized build configuration script
-
 # ⚙️ ARM Converter (AArch64 → ARMv7)
 
 <div align="center">
@@ -84,3 +68,21 @@ Build the release binary using the included `Makefile`:
 
 ```bash
 make
+
+---
+
+## 🏗 Architecture & Project Structure
+
+```text
+arm-compiler/
+├── 📄 elf_header.h          # Low-level C-struct definitions for ELF32/ELF64 headers
+├── 📄 elf_parser.h          # Interface for ELF binary parsing & re-writing
+├── 📄 elf_parser.cpp        # Custom ELF file parser implementation
+├── 📄 register_mapper.h    # Register mapping interface (AArch64 <-> ARM32)
+├── 📄 register_mapper.cpp  # State management and spill-offset calculations
+├── 📄 assembler.h          # Low-level A32 and A64 instruction encoder
+├── 📄 assembler.cpp        # Byte-buffer code emitter and opcode construction
+├── 📄 translator.h         # Core ISA translation context and interface
+├── 📄 translator.cpp       # Pattern-matching translation loops
+├── 📄 main.cpp             # CLI Entry point & pipeline controller
+└── 🛠 Makefile             # Optimized build configuration script
